@@ -1,0 +1,5 @@
+.aider*
+.env
+.aider.chat.history.md
+dist
+node_modules
