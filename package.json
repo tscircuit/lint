@@ -9,7 +9,7 @@
     "tscircuit-lint": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsup-node lib/index.ts --format esm --sourcemap inline",
+    "build": "tsup-node lib/index.ts --format esm --sourcemap inline --out-dir=dist",
     "format": "biome format . --write",
     "lint": "eslint ."
   },
