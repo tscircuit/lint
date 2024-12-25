@@ -5,8 +5,11 @@
   "description": "this is a custom linter for tscircuit",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
+  "bin": {
+    "tscircuit-lint": "./dist/index.js"
+  },
   "scripts": {
-    "build": "bun build ./lib/index.ts --outdir ./dist",
+    "build": "tsup-node lib/index.ts --format esm --sourcemap inline",
     "format": "biome format . --write",
     "lint": "eslint ."
   },
@@ -18,7 +21,8 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "eslint": "^9.0.0"
+    "eslint": "^9.0.0",
+    "tsup": "^8.3.5"
   },
   "peerDependencies": {
     "eslint": ">=8.57.0",

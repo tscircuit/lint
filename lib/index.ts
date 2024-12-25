@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import bannedWords from "./rules/banned-words"
 import twoParams from "./rules/two-params"
 
