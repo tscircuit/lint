@@ -1,11 +1,12 @@
 import tsParser from "@typescript-eslint/parser"
-import customPlugin from "./dist/index.js" // Import your local plugin
+import jsoncParser from "jsonc-eslint-parser"
+import customPlugin from "./dist/index.js"
 
 export default [
   {
     files: ["**/*.{js,ts,jsx,tsx}"],
     plugins: {
-      "my-custom-plugin": customPlugin, // Register your plugin
+      "@tscircuit/lint": customPlugin,
     },
     languageOptions: {
       parser: tsParser,
@@ -14,8 +15,22 @@ export default [
       },
     },
     rules: {
-      "my-custom-plugin/banned-words": "error", // Enable your custom rule
-      "my-custom-plugin/two-params": "error", // Enable your custom rule
+      "@tscircuit/lint/banned-words": "error",
+      "@tscircuit/lint/two-params": "error",
+      "@tscircuit/lint/context-pattern": "error",
+    },
+  },
+  {
+    // Add separate config for package.json
+    files: ["package.json"],
+    plugins: {
+      "@tscircuit/lint": customPlugin,
+    },
+    languageOptions: {
+      parser: jsoncParser,
+    },
+    rules: {
+      "@tscircuit/lint/tscircuit-deps": "error",
     },
   },
 ]
