@@ -1,9 +1,16 @@
 import { RuleTester } from "eslint"
 import rule from "../../lib/rules/tscircuit-dependencies"
 import { test } from "bun:test"
+import tsParser from "@typescript-eslint/parser"
 
 test("tscircuit-dependencies", () => {
-  const ruleTester = new RuleTester({})
+  const ruleTester = new RuleTester({
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: 2020,
+      sourceType: "module",
+    },
+  })
 
   ruleTester.run("tscircuit-dependencies", rule, {
     valid: [
@@ -43,6 +50,9 @@ test("tscircuit-dependencies", () => {
         errors: [
           {
             messageId: "incorrectPeerDependencyVersion",
+          },
+          {
+            messageId: "missingDevDependency",
           },
         ],
       },

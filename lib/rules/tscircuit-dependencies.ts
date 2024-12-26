@@ -24,7 +24,7 @@ const rule: Rule.RuleModule = {
       packageJson = JSON.parse(context.getSourceCode().text)
     } catch (error: any) {
       context.report({
-        node: context.getSourceCode().ast,
+        loc: { line: 1, column: 0 }, // Report at the start of the file
         message: `JSON parsing error: ${error.message}`,
       })
       return {}
@@ -45,7 +45,7 @@ const rule: Rule.RuleModule = {
 
     function isTscircuitDependency(dep: string): boolean {
       return tscircuitDependencies.some((pattern) => {
-        const regex = new RegExp(pattern.replace("*", ".*"))
+        const regex = new RegExp(`^${pattern.replace("*", ".*")}$`)
         return regex.test(dep)
       })
     }
