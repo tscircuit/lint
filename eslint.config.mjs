@@ -16,6 +16,7 @@ export default [
     rules: {
       "my-custom-plugin/banned-words": "error", // Enable your custom rule
       "my-custom-plugin/two-params": "error", // Enable your custom rule
+      "my-custom-plugin/tscircuit-dependencies": "error", // Add custom rule
     },
   },
 ]
