@@ -18,6 +18,8 @@ export default [
       "@tscircuit/lint/banned-words": "error",
       "@tscircuit/lint/two-params": "error",
       "@tscircuit/lint/context-pattern": "error",
+      "@tscircuit/lint/camel-case": "error",
+      "@tscircuit/lint/snake-case": "error",
     },
   },
   {
