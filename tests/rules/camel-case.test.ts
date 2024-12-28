@@ -1,10 +1,10 @@
-import { RuleTester } from "eslint";
-import rule from "../../lib/rules/camel-case"; // Ensure path is correct
+import { RuleTester } from "eslint"
+import rule from "../../lib/rules/camel-case" // Ensure path is correct
 
-import { test } from "bun:test";
+import { test } from "bun:test"
 
 test("enforce camelCase naming convention", () => {
-  const ruleTester = new RuleTester();
+  const ruleTester = new RuleTester()
 
   ruleTester.run("camelCase-naming-convention", rule, {
     valid: [
@@ -53,5 +53,5 @@ test("enforce camelCase naming convention", () => {
         ],
       },
     ],
-  });
-});
+  })
+})

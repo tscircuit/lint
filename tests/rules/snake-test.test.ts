@@ -1,9 +1,9 @@
-import { RuleTester } from "eslint";
-import rule from "../../lib/rules/snake-case"; // Path to your snake-case rule
-import { test } from "bun:test";
+import { RuleTester } from "eslint"
+import rule from "../../lib/rules/snake-case" // Path to your snake-case rule
+import { test } from "bun:test"
 
 test("enforce snake_case naming convention", () => {
-  const ruleTester = new RuleTester();
+  const ruleTester = new RuleTester()
 
   ruleTester.run("snake_case-naming-convention", rule, {
     valid: [
@@ -66,5 +66,5 @@ test("enforce snake_case naming convention", () => {
         ],
       },
     ],
-  });
-});
+  })
+})
